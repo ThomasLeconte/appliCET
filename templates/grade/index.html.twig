@@ -1,0 +1,59 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Grade index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des grades", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+    {% if is_granted('ROLE_DSI') %}
+		{{ button("Ajouter un nouveau grade", {title:"Ajouter un nouveau grade", url: path('grade_new'), icone: 'plus' }) }}
+ 	{% endif %}	
+	
+	<table class="records_list responsive no-wrap display" id="table_grade">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Code    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Libellé    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Catégorie    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Actif    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+		{% for grade in grades %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ grade.code }}
+				<td>{{ grade.libelleLong }}</td>
+				<td>{{ grade.categorie }}</td>
+				<td>{{ grade.actif }}</td>
+	            <td>
+                	{{ link_to("", {title:"Modifier", url: path('grade_edit', {'code': grade.code}), icone: 'modifie', csrf: true}) }}
+                	{{ link_to("", {title:"Détail", url: path('grade_show', {'code': grade.code}), icone: 'document', csrf: true}) }}
+                	{{ link_to("", {title:"Supprimer", url: path('grade_delete', {'code': grade.code}), icone: 'croix', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_grade", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

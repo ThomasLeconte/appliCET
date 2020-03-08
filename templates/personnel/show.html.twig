@@ -1,0 +1,68 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Personnel{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Détail d'un personnel ", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+    <div class="form" style="width:50%;--label-width:15em;">
+
+                	        	
+				<div class="form_row">
+					<span class="form_label"><label>IdLdap</label></span>
+					<div class="form_row_widget">{{ personnel.idLdap }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>Nom</label></span>
+					<div class="form_row_widget">{{ personnel.nom }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>Prenom</label></span>
+					<div class="form_row_widget">{{ personnel.prenom }}</div>
+                </div>
+                
+				{% if personnel.affectation is empty %}
+				<div class="form_row">
+					<span class="form_label"><label>Affectation</label></span>
+					<div class="form_row_widget">Aucune</div>
+                </div>
+				{% else %}
+				<div class="form_row">
+					<span class="form_label"><label>Nom</label></span>
+					<div class="form_row_widget">{{ personnel.affectation }}</div>
+                </div>
+				{% endif %}
+
+				{% if personnel.grade is empty %}
+				<div class="form_row">
+					<span class="form_label"><label>Grade</label></span>
+					<div class="form_row_widget">Aucun</div>
+                </div>
+				{% else %}
+				<div class="form_row">
+					<span class="form_label"><label>Grade</label></span>
+					<div class="form_row_widget">{{ personnel.grade }}</div>
+                </div>
+				{% endif %}
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>EtatCloture</label></span>
+					<div class="form_row_widget">{{ personnel.etatCloture|toImage }}</div>
+                </div>
+                
+        {% if is_granted('ROLE_DSI') %}
+		<div class="form_buttons">
+           	{{ button("Retour à la liste", {icone:'annule', url: path('personnel_index')}) }}
+        </div>
+ 		{% endif %}		                
+
+    </div>
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

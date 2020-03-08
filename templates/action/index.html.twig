@@ -1,0 +1,62 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Action index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des actions", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+	{{ button("Ajouter une nouvelle action", {title:"Ajouter un nouveau action", url: path('action_new'), icone: 'plus' }) }}
+
+	<table class="records_list responsive no-wrap display" id="table_action">
+		<thead>
+			<tr>
+				<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Personnel    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Annee    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="date-euro" style="width:7em">
+        			Date    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="num" style="width:7em">
+        			Jours    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="num" style="width:7em">
+        			Conges    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for action in actions %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ action.personnel.prenom }} {{ action.personnel.nom }}</td>
+				<td>{{ action.annee }}</td>
+				<td>{{ action.date ? action.date|date('d/m/Y') }}</td>
+				<td>{{ action.jours }}</td>
+				<td>{{ action.conges }}</td>
+	            <td>
+                	{{ link_to("", {title:"Modifier", url: path('action_edit', {'id': action.id}), icone: 'modifie', csrf: true}) }}
+                	{{ link_to("", {title:"Détail", url: path('action_show', {'id': action.id}), icone: 'document', csrf: true}) }}
+                	{{ link_to("", {title:"Supprimer", url: path('action_delete', {'id': action.id}), icone: 'poubelle', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_action", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

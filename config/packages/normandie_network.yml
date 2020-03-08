@@ -1,0 +1,4 @@
+normandie_network:
+    conf:
+        proxy_url: '%env(NORMANDIE_NETWORK_PROXY_URL)%'
+        proxy_port: '%env(NORMANDIE_NETWORK_PROXY_PORT)%'

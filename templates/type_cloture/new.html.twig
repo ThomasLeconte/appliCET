@@ -1,0 +1,32 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}New TypeCloture{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Ajout d'un type de clôture", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('type_cloture_new', {'id': type_cloture.id}) }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+                        	                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.libelle) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.libelle) }}
+                        {{ form_widget(form.libelle) }}
+                    </div>
+				</div>
+                                                
+            <div class="form_buttons">
+            	{{ button("Retour à la liste", {icone:'annule', url: path('type_cloture_index')}) }}
+                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Rechercher du personnel{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Recherche avancée du personnel", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('recherche_personnel') }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+                        	            	
+            	<div class="form_row">
+                	<span class="form_label">{{ form_label(form.nom) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.nom) }}
+                        {{ form_widget(form.nom) }}
+                    </div>
+				</div>
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.nomPatronymique) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.nomPatronymique) }}
+                        {{ form_widget(form.nomPatronymique) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.prenom) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.prenom) }}
+                        {{ form_widget(form.prenom) }}
+                    </div>
+				</div>  
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.rne) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.rne) }}
+                        {{ form_widget(form.rne) }}
+                    </div>
+				</div>
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.dateAction) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.dateAction) }}
+                        {{ form_widget(form.dateAction) }}
+                    </div>
+				</div>
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.filtre) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.filtre) }}
+                        {{ form_widget(form.filtre) }}
+                    </div>
+				</div>
+                                                
+            <div class="form_buttons">
+                {{ button("Rechercher", {icone: 'loupe', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

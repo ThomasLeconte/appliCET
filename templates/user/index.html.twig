@@ -1,0 +1,50 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des user", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+	{{ button("Ajouter un nouveau user", {title:"Ajouter un nouveau user", url: path('user_new'), icone: 'plus' }) }}
+
+	<table class="records_list responsive no-wrap display" id="table_user">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Username    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Password    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ user.username }}</td>
+				<td>{{ user.password }}</td>
+	            <td>
+                	{{ link_to("", {title:"Modifier", url: path('user_edit', {'id': user.id}), icone: 'modifie', csrf: true}) }}
+                	{{ link_to("", {title:"Détail", url: path('user_show', {'id': user.id}), icone: 'document', csrf: true}) }}
+                	{{ link_to("", {title:"Supprimer", url: path('user_delete', {'id': user.id}), icone: 'poubelle', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_user", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

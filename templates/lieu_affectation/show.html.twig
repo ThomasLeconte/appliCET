@@ -1,0 +1,56 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}LieuAffectation{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Détail d'un lieu d'affectation ", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+    <div class="form" style="width:50%;--label-width:15em;">
+            	        	
+				<div class="form_row">
+					<span class="form_label"><label>Rne</label></span>
+					<div class="form_row_widget">{{ lieu_affectation.rne }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>Libelle</label></span>
+					<div class="form_row_widget">{{ lieu_affectation.libelle }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>Secteur</label></span>
+					<div class="form_row_widget">{{ lieu_affectation.secteur }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>Sigle</label></span>
+					<div class="form_row_widget">{{ lieu_affectation.sigle }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>Localite</label></span>
+					<div class="form_row_widget">{{ lieu_affectation.localite }}</div>
+                </div>
+                
+        	                	        	
+				<div class="form_row">
+					<span class="form_label"><label>TypeEtablissement</label></span>
+					<div class="form_row_widget">{{ lieu_affectation.typeEtablissement }}</div>
+                </div>
+                
+        {% if is_granted('ROLE_DSI') %}
+		<div class="form_buttons">
+           	{{ button("Retour à la liste", {icone:'annule', url: path('lieu_affectation_index')}) }}
+        </div>
+ 		{% endif %}		                
+
+    </div>
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

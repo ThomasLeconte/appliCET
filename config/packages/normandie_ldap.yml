@@ -1,0 +1,216 @@
+parameters:
+    DEFAUT_NULL: null
+    DEFAUT_STRING: ''
+    DEFAUT_PORT: 389
+    DEFAUT_NOM1: LDAP_1
+    DEFAUT_NOM2: LDAP_2
+    DEFAUT_NOM3: LDAP_3
+    DEFAUT_NOM4: LDAP_4
+    DEFAUT_NOM5: LDAP_5
+    DEFAUT_NOM6: LDAP_6
+    DEFAUT_NOM7: LDAP_7
+    DEFAUT_NOM8: LDAP_8
+    DEFAUT_NOM9: LDAP_9
+    DEFAUT_NOM10: LDAP_10
+    DEFAUT_NOM11: LDAP_11
+    DEFAUT_NOM12: LDAP_12
+    DEFAUT_NOM13: LDAP_13
+    DEFAUT_NOM14: LDAP_14
+    DEFAUT_NOM15: LDAP_15
+    DEFAUT_NOM16: LDAP_16
+    DEFAUT_NOM17: LDAP_17
+    DEFAUT_NOM18: LDAP_18
+    DEFAUT_NOM19: LDAP_19
+    DEFAUT_NOM20: LDAP_20
+    DEFAUT_NOM21: LDAP_21
+    DEFAUT_NOM22: LDAP_22
+    DEFAUT_NOM23: LDAP_23
+    DEFAUT_NOM24: LDAP_24
+    DEFAUT_NOM25: LDAP_25
+    DEFAUT_NOM26: LDAP_26
+    DEFAUT_NOM27: LDAP_27
+    DEFAUT_NOM28: LDAP_28
+    DEFAUT_NOM29: LDAP_29
+    DEFAUT_NOM30: LDAP_30
+normandie_ldap:
+    ldaps:
+        '%env(string:default:DEFAUT_NOM1:resolve:NORMANDIE_LDAP_1_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_1_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_1_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_1_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_1_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_1_MDP)%'
+        '%env(string:default:DEFAUT_NOM2:resolve:NORMANDIE_LDAP_2_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_2_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_2_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_2_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_2_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_2_MDP)%'
+        '%env(string:default:DEFAUT_NOM3:resolve:NORMANDIE_LDAP_3_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_3_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_3_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_3_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_3_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_3_MDP)%'
+        '%env(string:default:DEFAUT_NOM4:resolve:NORMANDIE_LDAP_4_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_4_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_4_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_4_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_4_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_4_MDP)%'
+        '%env(string:default:DEFAUT_NOM5:resolve:NORMANDIE_LDAP_5_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_5_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_5_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_5_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_5_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_5_MDP)%'
+        '%env(string:default:DEFAUT_NOM6:resolve:NORMANDIE_LDAP_6_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_6_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_6_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_6_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_6_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_6_MDP)%'
+        '%env(string:default:DEFAUT_NOM7:resolve:NORMANDIE_LDAP_7_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_7_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_7_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_7_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_7_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_7_MDP)%'
+        '%env(string:default:DEFAUT_NOM8:resolve:NORMANDIE_LDAP_8_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_8_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_8_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_8_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_8_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_8_MDP)%'
+        '%env(string:default:DEFAUT_NOM9:resolve:NORMANDIE_LDAP_9_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_9_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_9_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_9_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_9_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_9_MDP)%'
+        '%env(string:default:DEFAUT_NOM10:resolve:NORMANDIE_LDAP_10_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_10_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_10_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_10_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_10_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_10_MDP)%'
+        '%env(string:default:DEFAUT_NOM11:resolve:NORMANDIE_LDAP_11_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_11_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_11_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_11_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_11_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_11_MDP)%'
+        '%env(string:default:DEFAUT_NOM12:resolve:NORMANDIE_LDAP_12_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_12_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_12_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_12_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_12_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_12_MDP)%'
+        '%env(string:default:DEFAUT_NOM13:resolve:NORMANDIE_LDAP_13_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_13_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_13_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_13_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_13_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_13_MDP)%'
+        '%env(string:default:DEFAUT_NOM14:resolve:NORMANDIE_LDAP_14_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_14_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_14_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_14_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_14_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_14_MDP)%'
+        '%env(string:default:DEFAUT_NOM15:resolve:NORMANDIE_LDAP_15_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_15_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_15_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_15_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_15_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_15_MDP)%'
+        '%env(string:default:DEFAUT_NOM16:resolve:NORMANDIE_LDAP_16_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_16_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_16_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_16_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_16_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_16_MDP)%'
+        '%env(string:default:DEFAUT_NOM17:resolve:NORMANDIE_LDAP_17_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_17_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_17_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_17_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_17_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_17_MDP)%'
+        '%env(string:default:DEFAUT_NOM18:resolve:NORMANDIE_LDAP_18_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_18_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_18_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_18_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_18_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_18_MDP)%'
+        '%env(string:default:DEFAUT_NOM19:resolve:NORMANDIE_LDAP_19_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_19_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_19_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_19_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_19_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_19_MDP)%'
+        '%env(string:default:DEFAUT_NOM20:resolve:NORMANDIE_LDAP_20_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_20_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_20_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_20_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_20_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_20_MDP)%'
+        '%env(string:default:DEFAUT_NOM21:resolve:NORMANDIE_LDAP_21_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_21_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_21_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_21_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_21_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_21_MDP)%'
+        '%env(string:default:DEFAUT_NOM22:resolve:NORMANDIE_LDAP_22_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_22_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_22_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_22_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_22_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_22_MDP)%'
+        '%env(string:default:DEFAUT_NOM23:resolve:NORMANDIE_LDAP_23_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_23_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_23_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_23_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_23_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_23_MDP)%'
+        '%env(string:default:DEFAUT_NOM24:resolve:NORMANDIE_LDAP_24_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_24_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_24_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_24_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_24_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_24_MDP)%'
+        '%env(string:default:DEFAUT_NOM25:resolve:NORMANDIE_LDAP_25_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_25_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_25_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_25_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_25_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_25_MDP)%'
+        '%env(string:default:DEFAUT_NOM26:resolve:NORMANDIE_LDAP_26_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_26_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_26_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_26_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_26_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_26_MDP)%'
+        '%env(string:default:DEFAUT_NOM27:resolve:NORMANDIE_LDAP_27_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_27_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_27_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_27_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_27_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_27_MDP)%'
+        '%env(string:default:DEFAUT_NOM28:resolve:NORMANDIE_LDAP_28_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_28_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_28_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_28_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_28_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_28_MDP)%'
+        '%env(string:default:DEFAUT_NOM29:resolve:NORMANDIE_LDAP_29_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_29_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_29_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_29_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_29_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_29_MDP)%'
+        '%env(string:default:DEFAUT_NOM30:resolve:NORMANDIE_LDAP_30_NOM)%':
+            adresse_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_30_ADRESSE)%'
+            port_ldap: '%env(string:default:DEFAUT_PORT:resolve:NORMANDIE_LDAP_30_PORT)%'
+            ou_ldap: '%env(string:default:DEFAUT_NULL:resolve:NORMANDIE_LDAP_30_OU)%'
+            login_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_30_LOGIN)%'
+            mdp_ldap: '%env(string:default:DEFAUT_STRING:resolve:NORMANDIE_LDAP_30_MDP)%'

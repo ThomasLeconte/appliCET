@@ -1,0 +1,48 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}TypeCloture index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des type de clôture", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+    {% if is_granted('ROLE_DSI') %}
+		{{ button("Ajouter un nouveau type de clôture", {title:"Ajouter un nouveau type_cloture", url: path('type_cloture_new'), icone: 'plus' }) }}
+ 	{% endif %}
+
+	<table class="records_list responsive no-wrap display" id="table_type_cloture">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Libellé    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_cloture in type_clotures %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ type_cloture.libelle }}</td>
+	            <td>
+                	{{ link_to("", {title:"Modifier", url: path('type_cloture_edit', {'id': type_cloture.id}), icone: 'modifie', csrf: true}) }}
+                	{{ link_to("", {title:"Détail", url: path('type_cloture_show', {'id': type_cloture.id}), icone: 'document', csrf: true}) }}
+                	{{ link_to("", {title:"Supprimer", url: path('type_cloture_delete', {'id': type_cloture.id}), icone: 'poubelle', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_type_cloture", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

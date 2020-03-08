@@ -1,0 +1,71 @@
+normandie_view:
+    academie:
+        nom_academie: '%env(NORMANDIE_VIEW_NOM_ACADEMIE)%'
+        site_academie: '%env(NORMANDIE_VIEW_SITE_ACADEMIE)%'
+        service: '%env(NORMANDIE_VIEW_NOM_SERVICE)%'
+        url_logo: '%env(NORMANDIE_VIEW_URL_LOGO)%'
+    application:
+        nom_appli: CET
+        nom_appli_mobile: CET
+        version: 2.0.0
+    menus:
+        principal:
+            Recherche:
+                libelle: Rechercher
+                route: recherche_personnel
+                role:
+                    - ROLE_RECHERCHE
+                sous_elements:
+                    Nouveau:
+                        libelle: 'Recherche simple'
+                        route: recherche_personnel
+                        role:
+                            - ROLE_RECHERCHE
+                        auth: true
+                    Liste:
+                        libelle: 'Recherche avancée'
+                        route: recherche_avance_personnel
+                        role:
+                            - ROLE_RECHERCHE
+                        auth: true
+            Personnel:
+                libelle: 'CET ouvert'
+                route: personnel_index
+                role:
+                    - ROLE_MENU_PERSONNEL
+                auth: true
+            affectation:
+                libelle: Affectations
+                route: lieu_affectation_index
+                role:
+                    - ROLE_MENU_AFFECTATION
+                auth: true
+            'Type de cloture':
+                libelle: 'Type de clôture'
+                route: type_cloture_index
+                role:
+                    - ROLE_MENU_TYPE_CLOTURE
+                auth: true
+            'Type action':
+                libelle: 'Type action'
+                route: type_action_index
+                role:
+                    - ROLE_MENU_TYPE_ACTION
+                auth: true
+            Grades:
+                libelle: Grades
+                route: grade_index
+                role:
+                    - ROLE_MENU_GRADE
+                auth: true
+            ImportationDonnees:
+                libelle: 'Importation des données'
+                route: data_index
+                role:
+                    - ROLE_MENU_IMPORTATION_DONNEES
+                auth: true
+            Deconnexion:
+                libelle: 'Déconnexion'
+                route: deconnexion
+                role:
+                    - ROLE_MENU_DECONNEXION

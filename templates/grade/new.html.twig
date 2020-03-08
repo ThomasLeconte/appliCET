@@ -1,0 +1,64 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}New Grade{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Ajout d'un grade", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('grade_new', {'code': grade.code}) }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+                        	                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.code) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.code) }}
+                        {{ form_widget(form.code) }}
+                    </div>
+				</div>
+                        	                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.libelleCourt) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.libelleCourt) }}
+                        {{ form_widget(form.libelleCourt) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.libelleLong) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.libelleLong) }}
+                        {{ form_widget(form.libelleLong) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.categorie) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.categorie) }}
+                        {{ form_widget(form.categorie) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.actif) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.actif) }}
+                        {{ form_widget(form.actif) }}
+                    </div>
+				</div>
+
+				<div class="form_buttons">
+            	{{ button("Retour à la liste", {icone:'annule', url: path('grade_index')}) }}
+                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

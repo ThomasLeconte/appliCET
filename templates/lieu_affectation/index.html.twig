@@ -1,0 +1,63 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}LieuAffectation index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des lieux d'affectation", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+    {% if is_granted('ROLE_DSI') %}
+		{{ button("Ajouter un nouveau lieu d'affectation", {title:"Ajouter un nouveau lieu_affectation", url: path('lieu_affectation_new'), icone: 'plus' }) }}
+ 	{% endif %}	
+
+	<table class="records_list responsive no-wrap display" id="table_lieu_affectation">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em" data-priority="1">
+        			RNE    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em" data-priority="1">
+        			Sigle    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Libelle    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Secteur    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Type    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lieu_affectation in lieu_affectations %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ lieu_affectation.rne }}</td>
+				<td>{{ lieu_affectation.sigle }}</td>
+				<td>{{ lieu_affectation.libelle }}</td>
+				<td>{{ lieu_affectation.secteur }}</td>
+				<td>{{ lieu_affectation.typeEtablissement }}</td>
+	            <td>
+                	{{ link_to("", {title:"Modifier", url: path('lieu_affectation_edit', {'rne': lieu_affectation.rne}), icone: 'modifie', csrf: true}) }}
+                	{{ link_to("", {title:"Détail", url: path('lieu_affectation_show', {'rne': lieu_affectation.rne}), icone: 'document', csrf: true}) }}
+                	{{ link_to("", {title:"Supprimer", url: path('lieu_affectation_delete', {'rne': lieu_affectation.rne}), icone: 'poubelle', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_lieu_affectation", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

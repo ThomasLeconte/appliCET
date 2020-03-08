@@ -1,0 +1,40 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Modification d'un user", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('user_edit', {'id': user.id}) }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+                        	                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.username) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.username) }}
+                        {{ form_widget(form.username) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.password) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.password) }}
+                        {{ form_widget(form.password) }}
+                    </div>
+				</div>
+                                                
+            <div class="form_buttons">
+            	{{ button("Retour à la liste", {icone:'annule', url: path('user_index')}) }}
+                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

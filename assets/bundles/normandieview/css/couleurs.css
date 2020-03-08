@@ -1,0 +1,342 @@
+/*******************************************************************************************/
+/* Couleurs globales : Permet de définir simplement un ensemble cohérent de couleurs       */
+/*******************************************************************************************/
+
+/* COULEURS DES STRUCTURES GLOBALES DE LA PAGE */
+
+/* couleur des fonds de page et de blocs */
+.couleur_global_fond_page,
+.ui-datepicker, .couleur_sousbloc_fond {
+	background-color:#ffffff;
+	color:#000000;
+} 
+
+/* couleur du fond de page du titre */
+#titre_page, 
+table.collapsed tbody tr td:first-child:before,table.collapsed tbody tr.parent td:first-child:before,
+.couleur_fond_titre, .couleur_fond_titre a,
+.couleur_bloc_fond a, .couleur_fond_menu a:hover, .ui-widget-content a,
+.couleur_icone_defaut /* pour les icones ajoutées à la main */
+{
+	/*background-color:#00ffff;*/
+	color:#B23761;
+}
+
+/* boutons*/
+.JQButton_wrapper .JQButton{
+	background-color:#B23761;
+	color:#ffffff;
+}
+
+/* couleur des liens / menus / entete de blocs / boutons / calendrier global */
+.couleur_global_elements, .couleur_global_elements a,
+table.records_list thead th, table.records_list thead td,
+.paging_full_numbers a.paginate_button, a.fg-button,
+.dataTables_paginate a.first, .dataTables_paginate a.previous, .dataTables_paginate a.next, .dataTables_paginate a.last, span.ellipsis, 
+table.dataTable thead th.sorting::after, 
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next,
+.ui-datepicker .ui-datepicker-week-end a,
+.ui-datepicker a.ui-state-default,
+.acad_menu_principal, .acad_menu_principal > ul > li >  a, .acad_menu_principal > ul > li > ul > li >  a ,
+.head-mobile_principal,
+.couleur_bloc_entete, .couleur_bloc_entete a {
+	background-color:#B23761;
+	color:#fbeb50;
+} 
+
+
+/* couleur des éléments sélectionnés et survol :
+	- menu : survol des items cliquables
+	- bouton : survol
+	- calendrier jour selectionné
+	- calendrier survol
+	- tableau : (bouton de navigation / page du tableau sélectionnée) 
+	- tableau : survol lignes
+	*/
+.JQButton_wrapper .JQButton:hover,
+.ui-datepicker td.ui-datepicker-current-day a.ui-state-active,
+.ui-datepicker td.ui-datepicker-current-day a.ui-state-hover,
+.ui-datepicker td.ui-datepicker-today a.ui-state-hover,
+.ui-datepicker .ui-datepicker-week-end a.ui-state-hover,
+.ui-datepicker a.ui-state-hover,
+/*a.fg-button:hover,*/
+.dataTables_paginate > span > a.ui-state-disabled,
+.paging_full_numbers a.paginate_active,
+fg-button ui-button ui-state-default ui-state-disabled,
+table.records_list tbody tr:hover,
+table.records_list tbody td.surlignageCol,
+table.records_list tbody tr:hover,
+table.records_list tbody tr:hover a,
+
+.acad_menu_principal > ul > li >  a:hover, .acad_menu_principal > ul > li > ul > li >  a:hover,
+.acad_menu_principal ul ul li.has-sub > a:after {
+	background-color: #fbeb50;
+	color: #B23761;
+}
+
+
+/*******************************************************************************************/
+/* Couleurs spécifiques : Permet de spécifier les couleurs voulues élément par élément     */
+/*******************************************************************************************/
+
+/* STRUCTURE DE LA PAGE */
+
+/* couleurs du corps de la page */
+.couleur_fond_page, .couleur_fond_page a
+{
+	/*background-color:#999999;*/
+	/*color:#FFFFFF;*/
+}
+
+
+/* couleurs du pied de page */
+.couleur_pied_page, .couleur_pied_page a
+{
+	/*background-color:green;*/
+	/*color:blue;*/
+}
+
+/* COULEURS DU MENU */
+
+.acad_menu_principal, .acad_menu_principal > ul > li >  a, .acad_menu_principal > ul > li > ul > li >  a {
+/*	background-color:purple;
+	color:#ffff70;*/
+} 
+
+.acad_menu_principal > ul > li >  a:hover, .acad_menu_principal > ul > li > ul > li >  a:hover {
+	/*background-color:#ffff70;
+	color:purple;*/
+} 
+
+.acad_menu_principal ul ul li.has-sub > a:after
+{
+	/*background-color:#ffff70;
+	color:purple;*/
+}
+
+.head-mobile_principal{
+	/*color: #ffff70;
+	background-color:purple;*/
+}
+
+/* couleur du fond du menu */
+.menu_liste
+{
+	/*background-color:lightblue;*/
+	/*color:purple;*/
+}
+
+/* couleur des items du fond du menu */
+.menu_liste span,  
+.menu_liste a
+{
+	/*background-color:lightblue;*/
+	/*color:purple;*/
+}
+
+
+/* couleur du fond du menu lorsque la souris passe dessus */
+.menu_liste a:hover 
+{
+	/*background-color:yellow;*/
+	/*color:#FFB11D;*/
+}
+
+
+.menu_liste li ul a /* couleurs Sous-listes */
+{ 
+  /*background-color: #F5F5F5;*/
+  /*color: green;*/
+}
+
+/* couleurs Sous-listes en survol */
+.menu_liste li ul a:hover 
+{ 
+  /*background-color: #F5F5F5;*/
+  /*color: #FFB11D;*/
+}
+
+
+
+/* COULEURS DES BLOCS */
+
+/* couleurs de l'entete du bloc */
+.couleur_bloc_entete, .couleur_bloc_entete a
+{
+	/*background-color:red;*/
+	/*color:#ffff70;*//*xxxx*/
+}
+
+/* couleurs du fond du bloc */
+.couleur_bloc_fond
+{
+	/*background-color:green;*/
+	/*color:purple;*/
+}
+
+.couleur_bloc_fond a
+{
+	/*background-color:green;*/
+	/*color:purple;*/
+}
+
+/* couleurs de l'entete du bloc */
+.couleur_sousbloc_entete, .couleur_sousbloc_entete a
+{
+	/*background-color:blue;*/
+	/*color:red;*/
+}
+
+/* couleurs du fond du bloc */
+.couleur_sousbloc_fond
+{
+	/*background-color:yellow;*/
+	/*color:black;*/
+}
+
+/* couleurs du fond du bloc */
+.couleur_sousbloc_fond a
+{
+	/*background-color:yellow;*/
+	/*color:black;*/
+}
+
+
+/* COULEURS DES BOUTONS */
+
+/* couleur du bouton */
+.JQButton_wrapper {
+	/*background-color: red;*/
+	/*color: #ffffff;*/
+}
+
+/* couleur en passant dessus */
+.JQButton_wrapper:hover {
+	/*background-color: #9c9688;*/ 
+	/*color: purple;*/
+}
+
+
+
+
+
+
+/* COMPLEMENT DES TABLEAUX */
+
+/* entete et boutons de navigation */
+table.records_list thead th, table.records_list thead td,
+.paging_full_numbers a.paginate_button {
+    /*background-color:#395B88;*/
+    /*color:#ffff70;*//*xxx*/
+	/*border:1px solid #F0EEEF;*/
+}
+
+/* bouton de navigation / page du tableau sélectionnée */
+.paging_full_numbers a.paginate_active {
+	/*background-color: lightgrey;*/
+	/*color: #395B88;*/
+}
+
+/* surlignage ligne quand souris survole */
+table.records_list tbody tr:hover,
+table.records_list tbody td.surlignageCol,
+table.records_list tbody tr:hover,
+table.records_list tbody tr:hover a {
+	/*background-color:LemonChiffon;*/
+}
+
+
+/* lignes paires et impaires */
+tr.odd{
+	background-color: #E5E2DC;
+}
+
+tr.even{
+	background-color: white;
+}
+
+/* contenu des cases */
+table.records_list td,
+table.records_list td a{
+	/*background-color:LemonChiffon;*/
+	/*color: red;*/
+}
+
+
+
+/* lignes paires et impaires triées */
+/* For the standard odd/even */
+/*
+tr.odd td.sorting_1 {
+	background-color: #DBD7CE;
+}
+
+tr.odd td.sorting_2 {
+	background-color: #DADCFF;
+}
+
+tr.odd td.sorting_3 {
+	background-color: #E0E2FF;
+}
+
+tr.even td.sorting_1 {
+	background-color: #E5E5E5;
+}
+
+tr.even td.sorting_2 {
+	background-color: #F2F3FF;
+}
+
+tr.even td.sorting_3 {
+	background-color: #F9F9FF;
+}*/
+
+/* bouton de navigation / page du tableau sélectionnée */
+.paging_full_numbers a.paginate_active
+{
+	/*background-color: lightgrey;*/
+	/*color: #395B88;*/
+}
+
+/* COULEURS DU CALENDRIER */
+/* couleur de fond et du texte des jours */
+.ui-datepicker {
+	/*background-color: #ffffff;*/
+	/*color: #000000;*/
+}
+
+/* boutons du calendrier : mois suivant / mois précédant / jours de la semaine */
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next,
+.ui-datepicker .ui-datepicker-week-end a,
+.ui-datepicker a.ui-state-default {
+	/*background-color: #395B88;#purple;*/
+	/*color: #ffffff;*/
+	}
+	
+/* jours pendant le week end */
+.ui-datepicker .ui-datepicker-week-end a{
+	/*background-color: grey;*/
+	/*color: #ffffff;*/
+	}
+	
+/* couleur du jour courant */ 
+.ui-datepicker td.ui-datepicker-today a.ui-state-highlight {
+	/*background-color: #4C787E;*/
+	/*color: yellow;*/
+	}
+
+/* couleur du jour selectionné */
+.ui-datepicker td.ui-datepicker-current-day a.ui-state-active {
+	/*background-color: #347C17;*/
+	/*color: yellow;*/
+	}
+
+/* couleur des éléments graphiques en survol */
+.ui-datepicker td.ui-datepicker-current-day a.ui-state-hover,
+.ui-datepicker td.ui-datepicker-today a.ui-state-hover,
+.ui-datepicker .ui-datepicker-week-end a.ui-state-hover,
+.ui-datepicker a.ui-state-hover {
+	/*background-color: #FFE5B4;*/
+	/*color: green;*/
+	}
+

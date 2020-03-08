@@ -1,0 +1,150 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Action index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des actions", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+    <h3>Historique CET de {{ personnel.prenom }} {{ personnel.nom }} : </h3><br>
+
+	
+
+	<table class="records_list responsive no-wrap display" id="table_action">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em" data-priority="1">
+        			Annee de référence
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="date-euro" style="width:7em">
+        			Date demande   	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="date-euro" style="width:7em">
+        			Action   	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="num" style="width:7em">
+        			Jours    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="num" style="width:7em">
+        			Conges    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for action in personnel.actions %}  
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ action.annee }}</td>
+				<td>{{ action.date ? action.date|date('d/m/Y') }}</td>
+				<td>{{ action.typeAction.libelle }}</td>
+				<td>{{ action.jours }}</td>
+				<td>{{ action.conges }}</td>
+				<td>
+                    {% if is_granted('ROLE_DSI') %}
+				        {{ link_to("", {title:"Modifier", url: path('action_edit', {'id': action.id}), icone: 'modifie', csrf: true}) }}
+                	    {{ link_to("", {title:"Détail", url: path('action_show', {'id': action.id}), icone: 'document', csrf: true}) }}
+                	    {{ link_to("", {title:"Supprimer", url: path('action_delete', {'id': action.id}), icone: 'croix', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                    {% else %}
+                	    {{ link_to("", {title:"Détail", url: path('action_show', {'id': action.id}), icone: 'document', csrf: true}) }}
+                    {% endif %}
+				</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br><br>
+    {{ link_to("Impression", {title:"Impression PDF", url: path('pdf', {'idLdap': personnel.idLdap}), icone: 'document-pdf', csrf: true}) }}
+    {% if personnel.etatCloture == false %}
+        {{ form_start(form, {method: 'post', url: path('action_listerParPersonnel', {'numen': personnel.numen}) }) }}
+        
+                <table class="formTable width75 tabCentre">
+                    <tbody>
+                        <tr>
+                            <th width="30%">
+                                Personnel : 
+                            </th>
+                            <td width="70%">
+                                <span style="color:red">
+                                    
+                                </span>
+                                {{ personnel.prenom }} {{ personnel.nom }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">
+                                {{ form_label(form.annee) }}
+                            </th>
+                            <td width="70%">
+                                <span style="color:red">
+                                    {{ form_errors(form.annee) }}
+                                </span>
+                                {{ form_widget(form.annee) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">
+                                {{ form_label(form.date) }}
+                            </th>
+                            <td width="70%">
+                                <span style="color:red">
+                                    {{ form_errors(form.date) }}
+                                </span>
+                                {{ form_widget(form.date) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">
+                                {{ form_label(form.jours) }}
+                            </th>
+                            <td width="70%">
+                                <span style="color:red">
+                                    {{ form_errors(form.jours) }}
+                                </span>
+                                {{ form_widget(form.jours) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">
+                                {{ form_label(form.conges) }}
+                            </th>
+                            <td width="70%">
+                                <span style="color:red">
+                                    {{ form_errors(form.conges) }}
+                                </span>
+                                {{ form_widget(form.conges) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th width="30%">
+                                {{ form_label(form.typeAction) }}
+                            </th>
+                            <td width="70%">
+                                <span style="color:red">
+                                    {{ form_errors(form.typeAction) }}
+                                </span>
+                                {{ form_widget(form.typeAction) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align:right">
+                                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+            {{ form_end(form) }}
+        {%endif%}
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_action", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+### symfony/framework-bundle ###
+/bin/
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/translations/
+/var/
+/vendor/
+### FIN symfony/framework-bundle ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+### FIN symfony/webpack-encore-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+### FIN symfony/phpunit-bridge ###
+
+### Fichier Conf Eclipse ###
+/.buildpath
+/.project
+/.settings
+### FIN Conf Eclipse ###
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###

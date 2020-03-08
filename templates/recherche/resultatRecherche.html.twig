@@ -1,0 +1,81 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Résultat de la recherche{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste du personnel", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+	{% if is_granted('ROLE_DSI') %}
+		{{ button("Ajouter un nouveau personnel", {title:"Ajouter un nouveau personnel", url: path('personnel_new'), icone: 'plus' }) }}{{ link_to("Nouvelle recherche", {icone:'loupe', url: path('recherche_personnel')}) }}
+	{% else %}
+			{{ link_to("Nouvelle recherche", {icone:'loupe', url: path('recherche_personnel')}) }}
+			<br><br>
+	{% endif %}
+
+	<table class="records_list responsive no-wrap display" id="table_personnel">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em" data-priority="1">
+        			Nom    	
+    			</th>
+				<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Patronyme   	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Prenom    	
+    			</th>
+				<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Grade    	
+    			</th>
+				<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Lieu d'affectation    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Clôturé   	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+		<tbody>
+        {% for personnel in personnels %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ personnel.nom }}</td>
+				<td>{{ personnel.nomPatronymique }}</td>
+				<td>{{ personnel.prenom }}</td>
+				{% if personnel.grade is empty %}
+				<td>Aucun</td>
+				{% else %}
+				<td>{{ link_to(personnel.grade.libelleCourt, {title:"", url: path('grade_show', {'code': personnel.grade.code}), csrf: true}) }}</td>
+				{% endif %}
+				{% if personnel.affectation is empty %}
+				<td>Aucun</td>
+				{% else %}
+				<td>{{ link_to(personnel.affectation.libelle, {title:"", url: path('lieu_affectation_show', {'rne': personnel.affectation.rne}), csrf: true}) }}</td>
+				{% endif %}
+				<td>{{ personnel.EtatCloture|toImage }}</td>
+	                <td>
+					{% if personnel.source == "LDAP" %}
+						{{ link_to("", {title:"Ouvrir un compte CET", url: path('personnel_newByNumen', {'numen': personnel.numen}), icone: 'plus', csrf: true}) }}
+					{% else %}
+						{{ link_to("", {title:"Historique CET", url: path('action_listerParPersonnel', {'numen': personnel.numen}), icone: 'horloge', csrf: true}) }}
+					{% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_personnel", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

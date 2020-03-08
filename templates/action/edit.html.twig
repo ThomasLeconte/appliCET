@@ -1,0 +1,72 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Edit Action{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Modification d'une action", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('action_edit', {'id': action.id}) }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.personnel) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.personnel) }}
+                        {{ form_widget(form.personnel) }}
+                    </div>
+				</div>
+                        	                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.annee) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.annee) }}
+                        {{ form_widget(form.annee) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.date) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.date) }}
+                        {{ form_widget(form.date) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.jours) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.jours) }}
+                        {{ form_widget(form.jours) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.conges) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.conges) }}
+                        {{ form_widget(form.conges) }}
+                    </div>
+				</div>
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.typeAction) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.typeAction) }}
+                        {{ form_widget(form.typeAction) }}
+                    </div>
+				</div>
+                                                
+            <div class="form_buttons">
+            	{{ button("Retour à la liste", {icone:'annule', url: path('action_index')}) }}
+                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

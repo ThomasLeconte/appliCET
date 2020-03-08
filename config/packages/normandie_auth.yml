@@ -1,0 +1,34 @@
+normandie_auth:
+    profils_de_connexion:
+        chefEPLE: ''
+        IEN: ''
+        IPR: ''
+        directeurEcole: ''
+        directeurCio: ''
+        enseignant: ''
+        infirmiere: ''
+    groupes_ldap:
+        G_DEV_TEST1: 'GESTIONNAIRE'
+        G_DEV_TEST2: 'DSI'
+    fr_edu_rne:
+        autoriser_etablissements_publics: true
+        autoriser_etablissements_prives: true
+        autoriser_etablissements_uaa: true
+        autoriser_etablissements_uaj: true
+    delegations:
+        nom_appli_ct: nom_appli
+        deleg_ce: nom_fonction_appli
+        deleg_ia: nom_fonction_appli
+    fonctions_roles:
+        'DSI': [ROLE_MENU_RECHERCHE, ROLE_MENU_PERSONNEL, ROLE_MENU_AFFECTATION, ROLE_MENU_TYPE_CLOTURE, ROLE_MENU_TYPE_ACTION, ROLE_MENU_GRADE, ROLE_MENU_IMPORTATION_DONNEES, ROLE_RECHERCHE, ROLE_PERSONNEL, ROLE_AFFECTATION, ROLE_TYPE_CLOTURE, ROLE_ACTION, ROLE_TYPE_ACTION, ROLE_GRADE, ROLE_IMPORTATION_DONNEES, ROLE_PDF, ROLE_ECRITURE, ROLE_ECRITURE_LDAP, ROLE_LECTURE, ROLE_SUPPRESSION, ROLE_DSI]
+        'GESTIONNAIRE': [ROLE_MENU_RECHERCHE, ROLE_MENU_PERSONNEL, ROLE_RECHERCHE, ROLE_PERSONNEL, ROLE_AFFECTATION, ROLE_ACTION, ROLE_GRADE, ROLE_PDF, ROLE_LECTURE, ROLE_ECRITURE_LDAP]
+    duree_authentification: 7200
+    routing:
+        default: _homepage_normandie_auth
+        url_deconnexion_ct: ./arena/
+        url_deconnexion_ct_relative: true
+    debug:
+        actif: false
+        login: 'toto'
+        profil: Debug_mode
+        roles_supplementaires: []

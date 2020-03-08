@@ -1,0 +1,20 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}CET - MAJ des données{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Ajouter des données", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+    {% if etablissements == 'Vide' %}
+    <h3>Importer les données de l'application : </h3><br>
+    {{ link_to("Hydrater les établissements", {title:"Hydrater les établissements", url: path('data_hydraterEtablissements'), icone: 'plus' }) }}<br>
+    {{ link_to("Hydrater les grades", {title:"Hydrater les établissements", url: path('data_hydraterGrades'), icone: 'plus' }) }}
+    {% else %}
+    <h3>Mettre à jour les données de l'application : </h3><br>
+    {{ link_to("Hydrater les établissements", {title:"Hydrater les établissements", url: path('data_hydraterEtablissements'), icone: 'plus' }) }}<br>
+    {{ link_to("Hydrater les grades", {title:"Hydrater les établissements", url: path('data_hydraterGrades'), icone: 'plus' }) }}
+    {% endif %}
+
+    {{ fin_bloc() }}
+    
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}New LieuAffectation{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Ajout d'un lieu d'affectation", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('lieu_affectation_new', {'rne': lieu_affectation.rne}) }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+                        	            	
+            	<div class="form_row">
+                	<span class="form_label">{{ form_label(form.rne) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.rne) }}
+                        {{ form_widget(form.rne) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.libelle) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.libelle) }}
+                        {{ form_widget(form.libelle) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.secteur) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.secteur) }}
+                        {{ form_widget(form.secteur) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.sigle) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.sigle) }}
+                        {{ form_widget(form.sigle) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.localite) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.localite) }}
+                        {{ form_widget(form.localite) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.typeEtablissement) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.typeEtablissement) }}
+                        {{ form_widget(form.typeEtablissement) }}
+                    </div>
+				</div>
+                                                
+            <div class="form_buttons">
+            	{{ button("Retour à la liste", {icone:'annule', url: path('lieu_affectation_index')}) }}
+                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

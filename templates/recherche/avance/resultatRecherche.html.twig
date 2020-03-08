@@ -1,0 +1,75 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Résultat de la recherche{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste du personnel", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+	{{ button("Ajouter un nouveau personnel", {title:"Ajouter un nouveau personnel", url: path('personnel_new'), icone: 'plus' }) }}
+
+	<table class="records_list responsive no-wrap display" id="table_personnel">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em" data-priority="1">
+        			Nom    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Prenom    	
+    			</th>
+				<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Grade    	
+    			</th>
+				<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Lieu d'affectation    	
+    			</th>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" style="width:7em">
+        			Clôturé   	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+		<tbody>
+        {% for personnel in personnels %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ personnel.nom }}</td>
+				<td>{{ personnel.prenom }}</td>
+				{% if personnel.grade is empty %}
+				<td>Aucun</td>
+				{% else %}
+				<td>{{ link_to(personnel.grade.libelleCourt, {title:"", url: path('grade_show', {'code': personnel.grade.code}), csrf: true}) }}</td>
+				{% endif %}
+				{% if personnel.affectation is empty %}
+				<td>Aucun</td>
+				{% else %}
+				<td>{{ link_to(personnel.affectation.libelle, {title:"", url: path('lieu_affectation_show', {'rne': personnel.affectation.rne}), csrf: true}) }}</td>
+				{% endif %}
+				<td>{{ personnel.EtatCloture|toImage }}</td>
+	                <td>
+					{% if personnel.source == "LDAP" %}
+						{{ link_to("", {title:"Ouvrir un compte CET", url: path('personnel_newByNumen', {'numen': personnel.numen}), icone: 'plus', csrf: true}) }}
+					{% else %}
+						{{ link_to("", {title:"Modifier", url: path('personnel_edit', {'numen': personnel.numen}), icone: 'modifie', csrf: true}) }}
+						{{ link_to("", {title:"Historique CET", url: path('action_listerParPersonnel', {'numen': personnel.numen}), icone: 'horloge', csrf: true}) }}
+						{{ link_to("", {title:"Supprimer", url: path('personnel_delete', {'numen': personnel.numen}), icone: 'croix', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+					{% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table><br>
+    {{ fin_bloc() }}
+	{{ link_to("Nouvelle recherche", {icone:'loupe', url: path('recherche_personnel')}) }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_personnel", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

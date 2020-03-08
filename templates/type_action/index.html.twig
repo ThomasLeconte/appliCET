@@ -1,0 +1,48 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}TypeAction index{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Liste des type d'action", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+    {% if is_granted('ROLE_DSI') %}
+		{{ button("Ajouter un nouveau type d'action", {title:"Ajouter un nouveau type_action", url: path('type_action_new'), icone: 'plus' }) }}
+ 	{% endif %}
+
+	<table class="records_list responsive no-wrap display" id="table_type_action">
+		<thead>
+			<tr>
+		    	<th data-orderable="true" data-searchable="true" data-type="string" data-priority="1">
+        			Libellé    	
+    			</th>
+				<th data-orderable="false" data-searchable="false" style="width:7em" data-priority="2">
+					Actions
+				</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_action in type_actions %}
+            <tr class="{{ cycle(['odd', 'even'], loop.index0) }}">
+				<td>{{ type_action.libelle }}</td>
+	            <td>
+                	{{ link_to("", {title:"Modifier", url: path('type_action_edit', {'id': type_action.id}), icone: 'modifie', csrf: true}) }}
+                	{{ link_to("", {title:"Détail", url: path('type_action_show', {'id': type_action.id}), icone: 'document', csrf: true}) }}
+                	{{ link_to("", {title:"Supprimer", url: path('type_action_delete', {'id': type_action.id}), icone: 'poubelle', method: 'delete', confirm: 'Etes vous certain ?'}) }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ fin_bloc() }}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}   
+    <script type="text/javascript" >
+    	$(document).ready(function(){
+        	initDT("table_type_action", {
+        		"aaSorting": [[0,"asc"]]});
+        	});
+	</script>
+{% endblock %}

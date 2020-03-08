@@ -1,0 +1,96 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Edit Personnel{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Modification d'un personnel", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+
+        {{ form_start(form, {method: 'post', url: path('personnel_edit', {'numen': personnel.numen}) }) }}
+    
+            <div class="form" style="width:50%;--label-width:15em;">
+
+            	<div class="form_row">
+                	<span class="form_label">{{ form_label(form.numen) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.numen) }}
+                        {{ form_widget(form.numen) }}
+                    </div>
+				</div>
+            	
+            	<div class="form_row">
+            		<span class="form_label">{{ form_label(form.idLdap) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.idLdap) }}
+                        {{ form.vars.value.idLdap }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.nom) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.nom) }}
+                        {{ form_widget(form.nom) }}
+                    </div>
+				</div>
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.nomPatronymique) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.nomPatronymique) }}
+                        {{ form_widget(form.nomPatronymique) }}
+                    </div>
+				</div>
+
+				<div class="form_row">
+                	<span class="form_label">{{ form_label(form.prenom) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.prenom) }}
+                        {{ form_widget(form.prenom) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.affectation) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.affectation) }}
+                        {{ form_widget(form.affectation) }}
+                    </div>
+				</div>
+
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.grade) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.grade) }}
+                        {{ form_widget(form.grade) }}
+                    </div>
+				</div>
+                                        	                
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.etatCloture) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.etatCloture) }}
+                        {{ form_widget(form.etatCloture) }}
+                    </div>
+				</div>
+				
+                <div class="form_row">
+                	<span class="form_label">{{ form_label(form.typeCloture) }} {{ info_bulle("") }}</span>
+					<div class="form_row_widget">
+                    	{{ form_errors(form.typeCloture) }}
+                        {{ form_widget(form.typeCloture) }}
+                    </div>
+				</div>
+                                                
+            <div class="form_buttons">
+            	{{ button("Retour à la liste", {icone:'annule', url: path('personnel_index')}) }}
+                {{ button("Enregistrer", {icone: 'sauvegarde', submit: 'true'}) }}
+            </div>
+        </div>
+    	
+    	<div class="invisible">{{ form_rest(form) }}</div>
+        {{ form_end(form) }}
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

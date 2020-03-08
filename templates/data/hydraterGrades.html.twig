@@ -1,0 +1,29 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Hydratation de l'application{% endblock %}
+
+{% block body %}
+
+    <style>
+        h3{
+            margin-bottom:2%;
+        }
+    </style>
+
+	{{ bloc("Ajouter des données", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+    <h3>Hydratation des grades : </h3>
+
+    {% if form is defined %}
+        {{ form_start(form)}}
+        {{ form_widget(form.file) }}
+        <div class="invisible">{{ form_rest(form) }}</div>
+        <button type="submit">Valider</button>
+        {{ form_end(form) }}
+    {% endif %}
+
+    {% if erreur is defined %}
+    <h3>Note : {{ erreur }}</h3>
+    {% endif %}
+    {{ fin_bloc() }}
+    
+{% endblock %}

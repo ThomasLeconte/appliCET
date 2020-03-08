@@ -1,0 +1,38 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}Connexion à l'application{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<style>
+		.connexion-button{
+			padding: 0.5%;
+			border-radius: 0px;
+		}
+		.form-input{
+			margin-bottom:1%;
+			border: 1px solid black;
+			padding: 0.5%;
+		}
+		.form-input:focus{
+			font-size: 15px;
+			transition: 0.2s ease-in-out;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+	{{ bloc("Connexion à l'application", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+		<center>
+		<form action="connexion" method="POST" ><br>
+			<input class="form-input" type="text" required name="_username" placeholder="Identifiant"><br>
+			<input class="form-input" type="password" required name="_password" placeholder="Mot de passe"><br>
+			<button class="connexion-button" type="submit">Se connecter</button>
+		</form>
+		</center>
+
+	{{ fin_bloc() }}
+{% endblock %}
+
+
