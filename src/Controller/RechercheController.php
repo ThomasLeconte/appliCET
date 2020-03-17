@@ -54,12 +54,7 @@ class RechercheController extends AbstractController
 
         	if ($form->isValid()){
 
-                $caracteresInterdits = array("**", "!", "&", "|", "(", ")", "=", "<", ">");
-
-                for($i=0; $i<sizeof($caracteresInterdits);$i++){
-                    $recherche->setNom(str_replace($caracteresInterdits[$i], "", $recherche->getNom()));
-                    $recherche->setPrenom(str_replace($caracteresInterdits[$i], "", $recherche->getPrenom()));
-                }
+                $this->checkFormFields($recherche, 1);
 
                 $filtreCET = $recherche->getFiltre();
 
@@ -184,17 +179,7 @@ class RechercheController extends AbstractController
 
         	if ($form->isValid()){
 
-                //die(var_dump($personnelRepository->findAllGreaterThanPrice()));
-                //die(var_dump($recherche->getDateAction()));
-
-                $caracteresInterdits = array("**", "!", "&", "|", "(", ")", "=", "<", ">");
-
-                for($i=0; $i<sizeof($caracteresInterdits);$i++){
-                    $recherche->setNom(str_replace($caracteresInterdits[$i], "", $recherche->getNom()));
-                    $recherche->setNomPatronymique(str_replace($caracteresInterdits[$i], "", $recherche->getNomPatronymique()));
-                    $recherche->setPrenom(str_replace($caracteresInterdits[$i], "", $recherche->getPrenom()));
-                    $recherche->setRne(str_replace($caracteresInterdits[$i], "", $recherche->getRne()));
-                }
+                $this->checkFormFields($recherche, 2);
 
                 $filtreCET = $recherche->getFiltre();
 
@@ -301,5 +286,32 @@ class RechercheController extends AbstractController
             'controller_name' => 'RechercheController',
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * Remplace les caractères interdits par ""
+     *
+     * @param Recherche $recherche
+     * @param integer $typeRecherche (si $typeRecherche = 1 -> recherche simple, sinon recherche avancée)
+     * @return void
+     */
+    public function checkFormFields(Recherche $recherche, int $typeRecherche){
+        if($typeRecherche == 1){
+            $caracteresInterdits = array("**", "!", "&", "|", "(", ")", "=", "<", ">");
+
+            for($i=0; $i<sizeof($caracteresInterdits);$i++){
+                $recherche->setNom(str_replace($caracteresInterdits[$i], "", $recherche->getNom()));
+                $recherche->setPrenom(str_replace($caracteresInterdits[$i], "", $recherche->getPrenom()));
+            }
+        }else{
+            $caracteresInterdits = array("**", "!", "&", "|", "(", ")", "=", "<", ">");
+
+            for($i=0; $i<sizeof($caracteresInterdits);$i++){
+                $recherche->setNom(str_replace($caracteresInterdits[$i], "", $recherche->getNom()));
+                $recherche->setNomPatronymique(str_replace($caracteresInterdits[$i], "", $recherche->getNomPatronymique()));
+                $recherche->setPrenom(str_replace($caracteresInterdits[$i], "", $recherche->getPrenom()));
+                $recherche->setRne(str_replace($caracteresInterdits[$i], "", $recherche->getRne()));
+            }
+        }
     }
 }

@@ -61,5 +61,4 @@ Interface ICet{
         'ROLE_LECTURE',
         'ROLE_ECRITURE_LDAP'
     ];
-
 }
