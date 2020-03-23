@@ -6,11 +6,12 @@ use App\Entity\LieuAffectation;
 use App\Form\LieuAffectationType;
 use App\Repository\LieuAffectationRepository;
 //use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Normandie\ViewBundle\Controller\BaseController; //Modification de  stb
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
+use Normandie\ViewBundle\Controller\BaseController; //Modification de  stb
 
 /**
  * @Route("/lieuaffectation")
@@ -106,10 +107,19 @@ class LieuAffectationController extends BaseController
     public function delete(Request $request, LieuAffectation $lieuAffectation): Response
     {
     	$this->checkCSRF($request);
-    	$entityManager = $this->getDoctrine()->getManager();
-    	$entityManager->remove($lieuAffectation);
-    	$entityManager->flush();
-    	$this->addFlashSucces("Le paramètre a bien été supprimé");
-        return $this->redirectToRoute('lieu_affectation_index');
+        $entityManager = $this->getDoctrine()->getManager();
+        try{
+            $entityManager->remove($lieuAffectation);
+            $entityManager->flush();
+            $this->addFlashSucces("Le paramètre a bien été supprimé");
+            return $this->redirectToRoute('lieu_affectation_index');
+        }catch(ForeignKeyConstraintViolationException $e){
+            return $this->render('exception/index.html.twig', [
+                'erreur' => "Erreur : Le lieu d'affectation que vous tentez de supprimer est affecté à un personnel. Il est donc ".
+                            "impossible de le supprimer.",
+                'infosErreur' => $e->getMessage(),
+                'intitule' => "Suppresion d'un lieu d'affectation"
+            ]);
+        }
     }
 }

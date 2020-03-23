@@ -6,11 +6,12 @@ use App\Entity\Grade;
 use App\Form\GradeType;
 use App\Repository\GradeRepository;
 //use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Normandie\ViewBundle\Controller\BaseController; //Modification de  stb
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
+use Normandie\ViewBundle\Controller\BaseController; //Modification de  stb
 
 /**
  * @Route("/grade")
@@ -106,10 +107,20 @@ class GradeController extends BaseController
     public function delete(Request $request, Grade $grade): Response
     {
     	$this->checkCSRF($request);
-    	$entityManager = $this->getDoctrine()->getManager();
-    	$entityManager->remove($grade);
-    	$entityManager->flush();
-    	$this->addFlashSucces("Le paramètre a bien été supprimé");
-        return $this->redirectToRoute('grade_index');
+        $entityManager = $this->getDoctrine()->getManager();
+        
+        try{
+            $entityManager->remove($grade);
+            $entityManager->flush();
+            $this->addFlashSucces("Le paramètre a bien été supprimé");
+            return $this->redirectToRoute('grade_index');
+        }catch(ForeignKeyConstraintViolationException $e){
+            return $this->render('exception/index.html.twig', [
+                'erreur' => "Erreur : Le grade que vous tentez de supprimer est affecté à un personnel. Il est donc ".
+                            "impossible de le supprimer.",
+                'infosErreur' => $e->getMessage(),
+                'intitule' => "Suppresion d'un grade de personnel"
+            ]);
+        }
     }
 }

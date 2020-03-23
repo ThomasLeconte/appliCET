@@ -1,0 +1,22 @@
+{% extends '@NormandieView/base.html.twig' %}
+
+{% block title %}CET - Erreur{% endblock %}
+
+{% block body %}
+
+    <style>
+        h3{
+            margin-bottom:2%;
+        }
+    </style>
+
+	{{ bloc("Erreur lors de la validation", {expanded: true, expandable: false, "infobulle": info_bulle("") }) }}
+    <h3>{{intitule}}</h3>
+
+    <p>{{erreur}}</p>
+    <br>
+    <p>Plus d'informations : {{infosErreur}}</p>
+    
+    {{ fin_bloc() }}
+    
+{% endblock %}

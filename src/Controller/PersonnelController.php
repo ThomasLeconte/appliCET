@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Normandie\ViewBundle\Controller\BaseController; //Modification de  stb
 
 /**
@@ -188,11 +189,13 @@ class PersonnelController extends BaseController
     public function delete(Request $request, Personnel $personnel): Response
     {
     	$this->checkCSRF($request);
-    	$entityManager = $this->getDoctrine()->getManager();
-    	$entityManager->remove($personnel);
-    	$entityManager->flush();
-    	$this->addFlashSucces("Le paramètre a bien été supprimé");
-        return $this->redirectToRoute('personnel_index');
+        return $this->render('exception/index.html.twig', [
+            'erreur' => "Erreur : Le personnel que vous tentez de supprimer à un historique CET. Par conséquent, ".
+                        "vous n'avez pas la possibilité de le supprimer maintenant. A titre d'information, les comptes sont ".
+                        "automatiquement supprimés au bout de 10 ans d'inactivité.",
+            'infosErreur' => "Contactez le service juridique de votre organisation.",
+            'intitule' => "Suppression d'un personnel"
+        ]);
     }
 
 }
